@@ -1,5 +1,5 @@
 import axios from "axios";
 
  export default axios.create({
-     baseURL: 'http://tradebot-api'
+     baseURL: 'https://tradebot-api-5dkv.onrender.com'
  })

@@ -1,7 +1,7 @@
 //import Profile from "../Profile";
 import connect from "../api/connect";
 
-const uri = 'http://tradebot-api'
+const uri = 'https://tradebot-api-5dkv.onrender.com'
 
 const changetrade = (trade)=>{
   if(trade === "start"){
