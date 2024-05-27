@@ -21,7 +21,7 @@ const Main = () => {
  
   return (
     <main className='w-full pt-9 overflow-auto overflow-y-auto scroll-my-8 absolute mb-11 sm:mb-32 mx-auto '>
-    <section className='w-full border'>
+    <section className='w-full border '>
     <img alt='bot' src={bot} height={1920} width={1920} className='object-cover sm:w-80 sm:h-80 sm:block sm:mx-auto'>
     </img>
 
@@ -44,10 +44,10 @@ const Main = () => {
     </p>
     </section>
 
-    <section className='w-full  overflow-y-auto mt-1 px-7  mb-20  mx-auto sm:flex sm:flex-row sm:pt-6 '>
+    <section className='w-full  overflow-y-auto mt-1 px-7  mb-20  mx-auto sm:flex sm:flex-row sm:pt-6  '>
         
      
-     <figure className='border-solid rounded-md mt-1 border-blue-400 border-2 mx-auto'>
+     <figure className='border-solid rounded-xl mt-1 border-blue-400 border-2 mx-auto bg-green-300 *:font-bold overflow-auto'>
      <NavLink to={`/how`}>
       <img alt='how it work' src={howIt} className='block object-cover w-fit mx-auto sm:w-28 sm:h-28'>
       </img>
@@ -60,10 +60,10 @@ const Main = () => {
      
 
     
-    <figure className=' mx-auto rounded-md mt-1 border-solid border-2 border-blue-400 '>
+    <figure className=' mx-auto rounded-xl mt-1 border-solid border-2 border-blue-400 bg-green-300 *:font-bold overflow-auto'>
     <NavLink to={`/depositing`}>
    
-   <img alt='about' src={deposit} className='block object-cover sm:w-28 sm:h-28 mx-auto '>
+   <img alt='about' src={deposit} className='block object-cover sm:h-28 mx-auto sm:w-full sm:mb-5 '>
    </img>
 
    <figcaption className='text-center text-black'>
