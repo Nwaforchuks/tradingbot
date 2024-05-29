@@ -25,15 +25,19 @@ const How_to_use = () => {
         <div className='bg-green-400 h-fit overflow-auto rounded-xl sm:grid sm:grid-cols-3'>
 
         <p className=' mx-2 mt-2 mb-2 text-sm text-slate-50 bg-green-700 rounded-xl px-2 py-2'>
-          Our robot are built with BitMEX api service which helps us generate trading signals or place orders, and manage trades.
+        Our robots are built with BitMEX api service which lets us generate trading 
+
+        signals or place orders, and also auto manage trades to ensure, you make 
+
+      profit in all your investments in our platform
         </p>
 
         <p className=' mx-2 mt-2 mb-2 text-sm text-slate-50 bg-green-700 rounded-xl px-2 py-2'>
-          Our trading bot, is programmed to trade constantly, 24 hours a day, 7days a week.
+          Our Ai, is programmed to trade constantly, 24 hours a day, 7days a week to ensure our users make daily profit
         </p>
 
         <p className=' mx-2 mt-2 mb-2 text-sm text-slate-50 bg-green-700 rounded-xl px-2 py-2'>
-          Our robot are designed to remove tradings psychological element, which can be detrimental
+          Our Ai are designed to remove tradings psychological element, which can be detrimental
         </p>
 
         </div>

@@ -31,9 +31,9 @@ const Main = () => {
     </h5>
 
     <p className='text-center text-xs'>
-      We provide easy-to-use smart trading<br></br>
-      tools and trading bots so that anyone  can<br></br>
-      easily invest in crypto.
+    We provide easy to use smart Investment
+    Tools,<br></br> And with our advanced investment Ai, anyone can easily Invest in<br></br> Crypto Currency.
+     
     </p>
 
     <p className='flex flex-row'>
