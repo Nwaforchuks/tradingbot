@@ -2,13 +2,16 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useState, useContext,useEffect } from 'react'
 import DataContext from './store/store'
 import connect from "./api/connect";
+import DotLoader from "react-spinners/DotLoader";
 
 const Login = () => {
 
   const navigate = useNavigate()
 
-  const {password,Setpassword,email,setemail,loginmsg,setloginmsg} = useContext(DataContext);
-  const [logout,setlogout] = useState(false)
+  const [signup,setsignup] = useState(true);
+  const [load,setload] = useState(false)
+
+  const {password,Setpassword,email,setemail,loginmsg,setloginmsg,Setregister} = useContext(DataContext);
  
   
   useEffect(()=>{
@@ -20,16 +23,14 @@ const Login = () => {
   },[])
 
  
-  function getCookie(key) {
-    var b = document.cookie.match("(^|;)\\s*" + key + "\\s*=\\s*([^;]+)");
-    return b ? b.pop() : "jwt";
-  }
+
 
 
   const sumbmlogin = (e)=>{
 
-    //sessionStorage.clear()
-
+    sessionStorage.clear()
+    setload(true)
+    setsignup(false)
     setloginmsg(prevState=>({
       ok:"",
       message:"",
@@ -38,13 +39,24 @@ const Login = () => {
 
   }))
 
-   setlogout(false)
   
     if(!email){
+      setloginmsg(prevState=>({
+        message:'Email address Empty'
       
+    }))
+    setload(false)
+    setsignup(true)
       return;
 
     }else if(!password){
+      
+      setload(false)
+      setsignup(true)
+      setloginmsg(prevState=>({
+        message:'Password address Empty'
+      
+    }))
      
       return;
     }
@@ -62,6 +74,19 @@ const Login = () => {
       
         }))
 
+        Setregister(prevState=>({
+          country:'',
+          name:'',
+          surname:'',
+          state:'',
+          city:'',
+          email:'',
+          password:'',
+          address:'',
+          age:''
+    
+      }))
+
         
        
           sessionStorage.setItem('login',JSON.stringify(res.data))
@@ -76,8 +101,9 @@ const Login = () => {
               message:res.data.message
 
           }))
+          setload(false)
+          setsignup(true)
 
-          setlogout(true)
          
        
       }
@@ -90,8 +116,10 @@ const Login = () => {
           message:err.response.data.message
 
       }))
+      setload(false)
+      setsignup(true)
 
-      setlogout(true)
+    
 
           
       }else{
@@ -102,8 +130,9 @@ const Login = () => {
           message:err.message
 
       }))
+      setload(false)
+      setsignup(true)
 
-      setlogout(true)
           
       }
 
@@ -111,7 +140,7 @@ const Login = () => {
 
 
     
-      //sessionStorage.setItem('login',JSON.stringify(login));
+     
      
  
     }
@@ -120,17 +149,20 @@ const Login = () => {
   
   return (
     
-     <div className=' pt-20 w-full  overflow-y-auto  absolute sm:mb-20 mx-auto pb-32 my-auto px-5'>
-      <form className=' border-solid border-2 mx-auto overflow-auto border-blue-300 rounded-lg px-4 my-auto bg-sky-100 shadow-lg shadow-orange-300 ' id='info'
-      onSubmit={(e)=>{
-        e.preventDefault()
+    <div className='w-full h-lvh bg-gradient-to-b from-violet-700  to-blue-500 px-3 py-3'
+    >
+      <form className='w-full h-fit my-auto mx-auto'>
+      <p className='text-center text-slate-50 mt-7 text-lg '>
+                <span className='font-bold'>Welcome,</span> <br></br>
+                Glad to see you!
+            </p>
+
+            <p className='text-center'>{`${loginmsg.message}`}</p>
       
-      }}
-      >
-        <legend className='text-center border-b-2 border-solid border-red-300 mb-4 font-semibold'> LOG-IN</legend>
         <fieldset>
          
-        <input type='email' pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" placeholder='Email' required className='border-b-2 border-solid border-slate-400 block w-full rounded-lg mb-2'
+        <input type='email' pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" placeholder='Email' required className='block mt-4 mx-auto w-full rounded-lg
+             bg-violet-500 border focus:border-transparent focus:ring-0 h-9 shadow-2xl pl-2 placeholder:text-slate-100'
           onChange={(e)=>{
 
          setemail(e.target.value.toString())
@@ -140,7 +172,8 @@ const Login = () => {
           }}>
           </input>
 
-          <input type='password' placeholder='Password' required className='border-b-2 border-solid border-slate-400 block w-full rounded-lg mb-2' id='pas1'
+          <input type='password' placeholder='Password' required className='block mt-4 mx-auto w-full rounded-lg
+             bg-violet-500 border focus:border-transparent focus:ring-0 h-9 shadow-2xl pl-2 placeholder:text-slate-100' id='pas1'
            onChange={(e)=>{
 
           Setpassword(e.target.value.toString())
@@ -152,30 +185,35 @@ const Login = () => {
          
         
         
+          {signup && 
+                    <button type='submit' className='mt-4 mx-auto w-full rounded-lg
+                    bg-slate-50 border focus:border-transparent focus:ring-0 h-9 shadow-2xl pl-2
+                   placeholder:text-slate-100 font-bold active:bg-slate-300 overflow-auto  '
+                     onClick={(e)=>{
+                        
+                         sumbmlogin(e)
+                      
+                 
+                     }}
+                     > Login
+                     </button>
+          }
 
-          <button type='submit' className='border border-solid border-blue-400 block w-full rounded-lg  mb-4 bg-blue-500 active:bg-blue-100 hover:bg-blue-200'
-          onClick={(e)=>{
-             
-              sumbmlogin(e)
-           
-      
-          }}
-          > Login
-          </button>
 
 
         </fieldset>
       
       </form>
 
-      {logout &&  <p className='border-solid boder-2 rounded-lg border-red-500 bg-red-400 w-1/2 h-1/2 mx-auto block pb-8 pt-2'>
-
-<Link to={`/login`}  className='mx-auto pt-5 my-10 text-center w-full  text-white font-semibold  block'>
-   error!{`${loginmsg.message}`}
-  
-   </Link>
-</p>}
-
+      <DotLoader
+          className='mx-auto mt-4 z-10'
+          
+          loading={load}
+          
+          size={40}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
      
       </div>
 

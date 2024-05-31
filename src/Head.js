@@ -37,12 +37,12 @@ useEffect(()=>{
   
   return (
     <div> 
-    <header className='fixed bg-blue-600 w-full shadow-xl flex flex-row space-x-4 items-center z-10 header-one pl-4'>
+    <header className='fixed bg-blue-600 w-full shadow-xl flex flex-row space-x-4 items-center z-10 header-one pl-4 h-8'>
      
    
     <div className='flex flex-row space-x-4'>
       {logout &&   <p className='shrink-0'>
-        <Link to={`/register`} className='text-xs text-white '> Create account</Link>
+        <Link to={`/create`} className='text-xs text-white '> Create account</Link>
       </p>}
 
 

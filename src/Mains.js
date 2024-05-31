@@ -20,9 +20,9 @@ const Main = () => {
 
  
   return (
-    <main className='w-full pt-9 overflow-auto overflow-y-auto scroll-my-8 absolute mb-11 sm:mb-32 mx-auto '>
-    <section className='w-full border '>
-    <img alt='bot' src={bot} height={1920} width={1920} className='object-cover sm:w-80 sm:h-80 sm:block sm:mx-auto'>
+    <main className='w-full overflow-auto overflow-y-auto scroll-my-8 absolute mb-11 sm:mb-32 mx-auto '>
+    <section className='w-full borderb '>
+    <img alt='bot' src={bot} height={1920} width={1920} className='object-cover sm:w-80 sm:h-80 sm:block sm:mx-auto w-28 block mx-auto'>
     </img>
 
     <h5 className='text-center font-semibold mb-1'>

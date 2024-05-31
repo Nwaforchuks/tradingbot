@@ -129,13 +129,9 @@ import { createContext, useEffect,useState } from "react";
 const DataContext = createContext({});
 
 export const DataProvider = ({children})=>{
-
-    const [create,Setcreate] = useState(false)
     const [email,setemail]=useState('')
     const[password,Setpassword]=useState('');
     const [logout,setlogout] = useState(true)
-
-    const [sub,setsub] = useState(false)
 
     
     const [register,Setregister] = useState(
@@ -272,10 +268,8 @@ export const DataProvider = ({children})=>{
 
     return(
         <DataContext.Provider value={{
-            create,Setcreate,
             register, Setregister,
             netMessage,SetnetMessage,
-            sub,setsub,
             password,Setpassword,
             email,setemail,
             loginmsg,setloginmsg,logout,

@@ -8,6 +8,8 @@
  import Howtodepo from './Howtodepo'
  import About from './about.js'
 import Profile from './Profile'
+import Create from './Create'
+import Succeful from './Succeful'
 
 
 
@@ -35,6 +37,8 @@ function App() {
         <Route exact  path="depositing" element={<Howtodepo/>} />
         <Route exact  path="about" element={<About/>} />
         <Route exact  path="profile" element={<Profile/>} />
+        <Route exact  path="create" element={<Create/>} />
+        <Route exact  path="succeful" element={<Succeful/>} />
         </Routes>
         </div>
       </Router>
