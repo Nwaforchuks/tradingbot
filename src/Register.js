@@ -62,7 +62,10 @@ const Register = () => {
       return
       
     }
-
+    Setregister(prev=>({
+      ...prev,
+      address: ''
+    }))
     connect.post("/register",register).then((response)=>{
       let res = response;
       if(res.data.ok === true){
