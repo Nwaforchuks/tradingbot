@@ -22,7 +22,7 @@ export default function Howtodepo() {
         <label className='mx-auto text-center block bg-blue-400 w-full rounded-xl text-sm font-bold text-slate-50'>How To Deposit</label>
 
         <p className=' mx-2 mt-2 mb-2 text-sm text-slate-50 bg-green-700 rounded-xl px-2 py-2 text-center'>
-        • Please make sure you deposit with a legit crypto wallet ID/address you registered with, because the wallet address will be used for crediting your deposits into your account.<br></br><br></br>
+        • Please make sure you deposit with a legit crypto wallet ID/address, because this wallet address will be used for crediting your deposits into your account after updating it as your sender wallet address.<br></br><br></br>
 
         • Do not deposit other assets, other than USDT on Ethereum Network<br></br><br></br>
         • The minimum deposit amount is 1.00 USDT.<br></br><br></br>

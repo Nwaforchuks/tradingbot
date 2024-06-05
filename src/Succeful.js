@@ -19,7 +19,7 @@ const Succeful = () => {
 
        navigate('/profile')
     }
-    if(!netMessage.ok){
+    if(netMessage.ok === false){
       navigate('/login')
     }
 

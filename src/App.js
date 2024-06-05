@@ -10,6 +10,7 @@
 import Profile from './Profile'
 import Create from './Create'
 import Succeful from './Succeful'
+import Home from './profileScreen/Home'
 
 
 
@@ -36,7 +37,7 @@ function App() {
         <Route exact  path="login" element={<Login/>} />
         <Route exact  path="depositing" element={<Howtodepo/>} />
         <Route exact  path="about" element={<About/>} />
-        <Route exact  path="profile" element={<Profile/>} />
+        <Route exact  path="profile/*" element={<Profile/>} />
         <Route exact  path="create" element={<Create/>} />
         <Route exact  path="succeful" element={<Succeful/>} />
         </Routes>

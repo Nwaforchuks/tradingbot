@@ -6,6 +6,7 @@ import btc from './bitcoin.png'
  import deposit from './how_dposit.webp'
  import { NavLink,useNavigate } from 'react-router-dom'
  import { useEffect } from 'react'
+ import about from './aboutIMG.svg'
 
 const Main = () => {
   const navigate = useNavigate();
@@ -44,10 +45,10 @@ const Main = () => {
     </p>
     </section>
 
-    <section className='w-full  overflow-y-auto mt-1 px-7  mb-20  mx-auto sm:flex sm:flex-row sm:pt-6  '>
+    <section className='w-full  overflow-y-auto mt-1   mx-auto sm:flex sm:flex-row sm:pt-6  '>
         
      
-     <figure className='border-solid rounded-xl mt-1 border-blue-400 border-2 mx-auto bg-green-300 *:font-bold overflow-auto'>
+     <figure className=' mt-1  mx-auto bg-green-300 *:font-bold overflow-auto'>
      <NavLink to={`/how`}>
       <img alt='how it work' src={howIt} className='block object-cover w-fit mx-auto sm:w-28 sm:h-28'>
       </img>
@@ -60,7 +61,7 @@ const Main = () => {
      
 
     
-    <figure className=' mx-auto rounded-xl mt-1 border-solid border-2 border-blue-400 bg-green-300 *:font-bold overflow-auto'>
+    <figure className=' mx-auto mt-1 bg-green-300 *:font-bold overflow-auto'>
     <NavLink to={`/depositing`}>
    
    <img alt='about' src={deposit} className='block object-cover sm:h-28 mx-auto sm:w-full sm:mb-5 '>
@@ -76,6 +77,32 @@ const Main = () => {
 
     
     
+    </section>
+
+    <section className='w-full  overflow-auto mb-20'>
+      <div className='w-full bg-yellow-500'>
+        <img alt='aboutIMG' src={about} className='w-full object-cover' >
+        </img>
+        <p className='px-2 text-center text-sm mt-2 mb-3'> 
+       <span className='font-bold'>Constantine trading AI</span>  is a cloud trading platform empowering trader to
+        automate their trading on major exchanges.
+        </p>
+
+        <p className='px-2 text-center text-sm mt-2 mb-3'>
+          <p className='text-center text-sm mt-2 mb-1 font-bold'> Constantine trading AI history</p>
+          Constantine trading AI welcomed first customers in Fall 2018 and never has been breaking the barriers to automated trading ever since then. For the last few years, Constantine trading AI has introduced thousands of crypto owners to automated trading.
+
+        In 2020 Constantine trading AI has expanded the markets available for automating by connecting new exchanges and brought some new advanced tools to its users. We can’t wait to share what else we are planning for you!
+        </p>
+
+      </div>
+
+      <p className='px-2 text-center text-sm mt-2'> 
+      <p className='text-center  mt-2 mb-1 font-bold'>Constantine trading AI mission</p>
+      We designed Constantine trading AI with the idea at heart to make automated crypto trading accessible to everyone and provide opportunities to traders of all experience levels to make a profit in the ever-growing crypto market.
+
+      </p>
+      
     </section>
 
     </main>

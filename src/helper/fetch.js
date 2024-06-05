@@ -1,7 +1,9 @@
 //import Profile from "../Profile";
+import { set } from "date-fns";
 import connect from "../api/connect";
 
 const uri = 'https://tradebot-api-vj4f.onrender.com'
+//const uri = 'http://localhost:3500'
 
 const changetrade = (trade)=>{
   if(trade === "start"){
@@ -11,7 +13,7 @@ const changetrade = (trade)=>{
   }
 }
 
-const Fetchaccount = (log,setrefresh,setwait,setaccount,changepos,setacctrade)=>{
+const Fetchaccount = (log,setrefresh,setaccount,changepos,setacctrade)=>{
 
     setaccount(prevState=>({
         ...prevState,
@@ -53,8 +55,10 @@ const Fetchaccount = (log,setrefresh,setwait,setaccount,changepos,setacctrade)=>
           
         }))
 
-        setrefresh(false)
-        setwait(true)
+        if(setrefresh != undefined){
+          setrefresh(true)
+        }
+    
 
     
 
@@ -67,8 +71,11 @@ const Fetchaccount = (log,setrefresh,setwait,setaccount,changepos,setacctrade)=>
               message:res.data.message
 
           }))
-          setrefresh(true)
-          setwait(false)
+          if(setrefresh != undefined){
+            setrefresh(false)
+          }
+
+        
          
        
       }
@@ -81,9 +88,12 @@ const Fetchaccount = (log,setrefresh,setwait,setaccount,changepos,setacctrade)=>
           message:err.response.data.message
 
       }))
+      if(setrefresh != undefined){
+        setrefresh(false)
+      }
 
-      setrefresh(true)
-      setwait(false)
+     
+   
 
           
       }else{
@@ -95,8 +105,10 @@ const Fetchaccount = (log,setrefresh,setwait,setaccount,changepos,setacctrade)=>
 
       }))
 
-      setrefresh(true)
-      setwait(false)
+      if(setrefresh != undefined){
+        setrefresh(false)
+      }
+    
           
       }
 
@@ -106,7 +118,7 @@ const Fetchaccount = (log,setrefresh,setwait,setaccount,changepos,setacctrade)=>
 
   }
 
-  const Fetchprofile = (log,setprofile,setrefresh,setwait)=>{
+  const Fetchprofile = (log,setprofile,setrefresh)=>{
 
     setprofile(prevState=>({
         ...prevState,
@@ -141,8 +153,11 @@ const Fetchaccount = (log,setrefresh,setwait,setaccount,changepos,setacctrade)=>
             city:res.data.city
         }))
 
-        setrefresh(false)
-        setwait(true)
+      
+        if(setrefresh != undefined){
+          setrefresh(true)
+        }
+     
 
     
 
@@ -155,8 +170,11 @@ const Fetchaccount = (log,setrefresh,setwait,setaccount,changepos,setacctrade)=>
               message:res.data.message
 
           }))
-          setrefresh(true)
-          setwait(false)
+         
+          if(setrefresh != undefined){
+            setrefresh(false)
+          }
+        
          
        
       }
@@ -170,8 +188,10 @@ const Fetchaccount = (log,setrefresh,setwait,setaccount,changepos,setacctrade)=>
 
         }))
 
-      setrefresh(true)
-      setwait(false)
+        if(setrefresh != undefined){
+          setrefresh(false)
+        }
+   
 
           
       }else{
@@ -183,8 +203,10 @@ const Fetchaccount = (log,setrefresh,setwait,setaccount,changepos,setacctrade)=>
 
         }))
 
-      setrefresh(true)
-      setwait(false)
+        if(setrefresh != undefined){
+          setrefresh(false)
+        }
+   
           
       }
 
@@ -195,7 +217,7 @@ const Fetchaccount = (log,setrefresh,setwait,setaccount,changepos,setacctrade)=>
   }
 
 
-  const Getwithdraw = async(log,setwithdraw,setdepositbutt,address,amount)=>{
+  const Getwithdraw = async(log,setwithdraw,address,amount)=>{
 
     setwithdraw(prevState=>({
       ...prevState,
@@ -238,8 +260,7 @@ const Fetchaccount = (log,setrefresh,setwait,setaccount,changepos,setacctrade)=>
          
          }))
 
-         setdepositbutt(false)
-
+        
          return
         
          
@@ -256,7 +277,7 @@ const Fetchaccount = (log,setrefresh,setwait,setaccount,changepos,setacctrade)=>
          message:data1.message,
     
         }))
-        setdepositbutt(true)
+      
         return;
       }else{
 
@@ -266,7 +287,7 @@ const Fetchaccount = (log,setrefresh,setwait,setaccount,changepos,setacctrade)=>
           message:"Failed to Connect to server",
      
          }))
-         setdepositbutt(true)
+        
         
       }
 
@@ -468,7 +489,11 @@ const Fetchaccount = (log,setrefresh,setwait,setaccount,changepos,setacctrade)=>
       if(data1.ok === true){
 
 
-         setbotmsg(data1.message)
+         setbotmsg(prev=>({
+          ...prev,
+          message:data1.message,
+          ok:true
+         }))
 
          return
         
@@ -477,7 +502,11 @@ const Fetchaccount = (log,setrefresh,setwait,setaccount,changepos,setacctrade)=>
       
       if(data1.ok === false){
         
-        setbotmsg(data1.message)
+        setbotmsg(prev=>({
+          ...prev,
+          message:data1.message,
+          ok:false
+         }))
         return;
       }else{
 
@@ -491,7 +520,102 @@ const Fetchaccount = (log,setrefresh,setwait,setaccount,changepos,setacctrade)=>
      
   }
 
+  const UpdateAddress = async(log,address,SetnetMessage)=>{
+
+    SetnetMessage(prev=>(
+      {
+        ...prev,
+        Message:'Updating'
+
+      }
+    ))
+
+   
+    let headersList = {
+      "Accept": "*/*",
+      "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+      "Content-Type": "application/json"
+    }
+     
+     let bodyContent = JSON.stringify({
+       "address":address,
+       "id": log,
+       "token": log
+       
+      });
+     
+     let response = await fetch(`${uri}/updateaddress`, { 
+       method: "PUT",
+       body: bodyContent,
+       headers: headersList
+     });
+     
+     let data = await response.text();
+     console.log(data);
+     let data1 = JSON.parse(data)
+      
+      if(data1.ok === true){
+
+        SetnetMessage(prev=>(
+          {
+            ...prev,
+            Message:data1.message,
+            Success:true
+
+          }
+        ))
+
+         return;
+
+        
+        
+         
+
+      }else if(data1.ok === false){
+
+       
+        SetnetMessage(prev=>(
+          {
+            ...prev,
+            Message:data1.message
+
+          }
+        ))
+        return
+       
+      }else {
+
+        SetnetMessage(prev=>(
+          {
+            ...prev,
+            Message:data1.message
+
+          }
+        ))
+         return
+        
+        
+      }
+
+       
+     
+   
+     
+  }
+
+  const Data = async()=>{
+    try{
+      let datas = await connect.get("/fetchdata")
+      console.log(datas.data.crypto)
+      return datas.data.crypto;
+    }catch(err){
+      return 0;
+    }
+    
+    
+  }
+
   
   export default Fetchaccount
-  export  {Fetchprofile, Getwithdraw,UpdateProfie,Fetchgain,UpdateBot}
+  export  {Fetchprofile, Getwithdraw,UpdateProfie,Fetchgain,UpdateBot,UpdateAddress,Data}
   

@@ -245,7 +245,10 @@ export const DataProvider = ({children})=>{
 
     )
 
-    const [botmsg,setbotmsg] = useState('')
+    const [botmsg,setbotmsg] = useState({
+        ok:false,
+        message:''
+    })
 
    
 

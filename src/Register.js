@@ -76,6 +76,7 @@ const Register = () => {
               Message:res.data.message
 
           }))
+          navigate('/succeful')
 
           // go to page make go tell you say completed contiues
          
