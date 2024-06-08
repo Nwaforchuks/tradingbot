@@ -133,6 +133,9 @@ export const DataProvider = ({children})=>{
     const[password,Setpassword]=useState('');
     const [logout,setlogout] = useState(true)
 
+    const [btc1,setbtc] = useState('')
+    const [eth1,seteth] = useState('')
+
     
     const [register,Setregister] = useState(
         {
@@ -143,7 +146,6 @@ export const DataProvider = ({children})=>{
             city:undefined,
             email:undefined,
             password:undefined,
-            address:undefined,
             age:undefined
        }
 
@@ -281,7 +283,7 @@ export const DataProvider = ({children})=>{
             withdraw,setwithdraw,
             updatepro,setupdatepro,
             gain,Setgain,acctrade,setacctrade,
-            botmsg,setbotmsg
+            botmsg,setbotmsg,btc1,setbtc,eth1,seteth
         }}>
             {children}
         </DataContext.Provider>

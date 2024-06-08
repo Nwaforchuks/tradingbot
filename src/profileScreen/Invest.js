@@ -2,7 +2,7 @@ import React from 'react'
 import btc from '../bitcoin.png'
 import eth from '../Ethereum.png.png'
 import verified from '../verifiedimg.svg'
-import Fetchaccount, { Data,UpdateBot} from '../helper/fetch'
+import Fetchaccount, {UpdateBot} from '../helper/fetch'
 import DataContext from '../store/store'
 import { useContext, useEffect, useState } from 'react'
 import { ToastContainer,toast } from 'react-toastify'
@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 const Invest = () => {
 
-  const {account,botmsg,setbotmsg,acctrade,setacctrade,setaccount,changepos} = useContext(DataContext);
+  const {account,botmsg,setbotmsg,acctrade,setacctrade,setaccount,changepos,btc1,eth1} = useContext(DataContext);
     const [colorb,setcolorb] = useState(``)
     const [colore,setcolore] = useState('')
     const [percent,setpercent] = useState(0)
@@ -34,19 +34,13 @@ const Invest = () => {
       toast(message)
      }
 
-    const Fetchprice = async()=>{
+    const Fetchprice = ()=>{
       
-      let data = await Data()
-
-      if(data !== 0){
-        setbtcprice(`${data['btc'].data.price}`)
-        setethprice(`${data.eth.data.price}`)
+    
+        setbtcprice(`${btc1}`)
+        setethprice(`${eth1}`)
         
-      }else{
-        setbtcprice(`failed reload`)
-        setethprice(`failed reload`)
-      }
-       
+     
       
       
     }

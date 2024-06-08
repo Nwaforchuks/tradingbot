@@ -45,34 +45,34 @@ const Main = () => {
     </p>
     </section>
 
-    <section className='w-full  overflow-y-auto mt-1   mx-auto sm:flex sm:flex-row sm:pt-6  '>
+    <section className='w-full  overflow-y-auto mt-1   mx-auto sm:grid sm:grid-flow-col '>
         
      
-     <figure className=' mt-1  mx-auto bg-green-300 *:font-bold overflow-auto'>
-     <NavLink to={`/how`}>
-      <img alt='how it work' src={howIt} className='block object-cover w-fit mx-auto sm:w-28 sm:h-28'>
+     <div className=' mt-1  mx-auto  *:font-semibold *:text-sm overflow-auto sm:mt-11 mb-2 sm:mb-0'>
+     <NavLink to={`/how`} className='place-content-evenly grid grid-flow-col'>
+      <img alt='how it work' src={howIt} className='block object-cover mx-auto'>
       </img>
 
-       <figcaption className='text-center text-black'>
-       How to use...
-       </figcaption>
+       <p className='text-center text-black my-auto'>
+       Click here to know more about our Robot.
+       </p>
        </NavLink>
-       </figure>
+       </div>
      
 
     
-    <figure className=' mx-auto mt-1 bg-green-300 *:font-bold overflow-auto'>
-    <NavLink to={`/depositing`}>
+       <div className=' mt-1  mx-auto  *:font-semibold *:text-sm overflow-auto sm:mt-0'>
+    <NavLink to={`/depositing`} className='place-content-evenly grid grid-flow-col'>
    
-   <img alt='about' src={deposit} className='block object-cover sm:h-28 mx-auto sm:w-full sm:mb-5 '>
+   <img alt='about' src={deposit} className='block object-cover mx-auto '>
    </img>
 
-   <figcaption className='text-center text-black'>
+   <p className='text-center text-black my-auto'>
     How to deposit and withdraw fund with<br></br>
     BitMex wallet address...
-   </figcaption>
+   </p>
    </NavLink>
-   </figure>
+       </div>
 
 
     

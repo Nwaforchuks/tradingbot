@@ -1,16 +1,8 @@
 import React from 'react'
 import { useEffect, useContext, useState } from 'react'
-import connect from "./api/connect";
 import DataContext from './store/store'
 import person from './person.svg'
-import add from './add.svg'
-import remove from './remove.svg'
-import view from './view.svg'
-import play from './play.svg'
-import Fetchuser from './helper/fetch'
-import Fetchaccount, { Fetchprofile,Getwithdraw,UpdateProfie,UpdateBot} from './helper/fetch';
-import btc from './bitcoin.png'
-import eth from './Ethereum.png.png'
+import Fetchaccount, { Fetchprofile,Data} from './helper/fetch';
 import homeimg from './homeimg.svg'
 import walletimg from './wallet1.svg'
 import candleimg from './candle1.svg'
@@ -18,13 +10,14 @@ import Home from './profileScreen/Home'
 import Wallet from './profileScreen/wallet';
 import Invest from './profileScreen/Invest';
 import Editprofile from './profileScreen/Editprofile'
-import {BrowserRouter as Router, Routes ,Route,useNavigate} from 'react-router-dom'
+import { Routes ,Route,useNavigate} from 'react-router-dom'
 
 
 
 const Profile = () => {
 //
-  const {setloginmsg,profile,setprofile,account,setaccount,changepos,setacctrade,acctrade} = useContext(DataContext);
+  const {setloginmsg,profile,setprofile,account,setaccount,changepos,setacctrade,
+    seteth,setbtc} = useContext(DataContext);
   const navigate = useNavigate();
   const [colorp,setcolorp] = useState('')
   const [colorh,setcolorh] = useState(`#50d71e`)
@@ -43,6 +36,17 @@ const Profile = () => {
       token:""
 
   }))
+
+  let data = await Data()
+
+  if(data !== 0){
+    setbtc(`${data['btc'].data.price}`)
+    seteth(`${data.eth.data.price}`)
+    
+  }else{
+    setbtc(`failed reload`)
+    seteth(`failed reload`)
+  }
   
   let log = JSON.parse(sessionStorage.getItem('login'))
  
