@@ -37,16 +37,7 @@ const Profile = () => {
 
   }))
 
-  let data = await Data()
-
-  if(data !== 0){
-    setbtc(`${data['btc'].data.price}`)
-    seteth(`${data.eth.data.price}`)
-    
-  }else{
-    setbtc(`failed reload`)
-    seteth(`failed reload`)
-  }
+ 
   
   let log = JSON.parse(sessionStorage.getItem('login'))
  
@@ -56,6 +47,16 @@ const Profile = () => {
      Fetchprofile(log,setprofile,setrefresh)
      Fetchaccount(log,setrefresh,setaccount,changepos,setacctrade)
      setwait(false)
+     let data = await Data()
+
+     if(data !== 0){
+       setbtc(`${data.btc}`)
+       seteth(`${data.eth}`)
+       
+     }else{
+       setbtc(`failed reload`)
+       seteth(`failed reload`)
+     }
 
   }else{
     navigate('/login')
