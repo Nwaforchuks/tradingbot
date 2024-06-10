@@ -31,7 +31,7 @@ const Main = () => {
       with Our Trading Bot.
     </h5>
 
-    <p className='text-center text-xs'>
+    <p className='text-center text-sm font-Dosis'>
     We provide easy to use smart Investment
     Tools,<br></br> And with our advanced investment Ai, anyone can easily Invest in<br></br> Crypto Currency.
      
@@ -45,31 +45,35 @@ const Main = () => {
     </p>
     </section>
 
-    <section className='w-full  overflow-y-auto mt-1   mx-auto sm:grid sm:grid-flow-col '>
+    <section className='w-full  overflow-y-auto mt-1   mx-auto sm:grid sm:grid-flow-col bg-slate-200 py-2 px-2 pt-5'>
         
      
-     <div className=' mt-1  mx-auto  *:font-semibold *:text-sm overflow-auto sm:mt-11 mb-2 sm:mb-0'>
-     <NavLink to={`/how`} className='place-content-evenly grid grid-flow-col'>
-      <img alt='how it work' src={howIt} className='block object-cover mx-auto'>
+     <div className=' mt-1  mx-auto  *:font-semibold *:text-sm overflow-auto sm:mt-11 mb-4  bg-slate-50 mr-4 ml-4 rounded-xl shadow-2xl'>
+     <NavLink to={`/how`} className='place-content-evenly  sm:grid sm:grid-flow-col'>
+      <img alt='how it work' src={howIt} className='block object-contain h-full'>
       </img>
 
-       <p className='text-center text-black my-auto'>
-       Click here to know more about our Robot.
+       <p className='text-center text-black my-auto px-4 py-4 mt-6 font-Dosis'>
+       Our robots are built with BitMEX api service which lets us generate trading signals or place orders, and also auto manage trades to ensure, you make profit in all your investments in our platform <span className='text-blue-400 underline'>Continue...</span>
        </p>
        </NavLink>
        </div>
      
 
     
-       <div className=' mt-1  mx-auto  *:font-semibold *:text-sm overflow-auto sm:mt-0'>
-    <NavLink to={`/depositing`} className='place-content-evenly grid grid-flow-col'>
+       <div className=' mt-1  mx-auto  *:font-semibold *:text-sm overflow-auto sm:mt-0  bg-slate-50 mr-4 ml-4 rounded-xl shadow-2xl mb-4'>
+    <NavLink to={`/depositing`} className='place-content-evenly sm:grid sm:grid-flow-col'>
    
-   <img alt='about' src={deposit} className='block object-cover mx-auto '>
+   <img alt='about' src={deposit} className='block object-contain my-auto'>
    </img>
 
-   <p className='text-center text-black my-auto'>
-    How to deposit and withdraw fund with<br></br>
-    BitMex wallet address...
+   <p className='text-center text-black my-auto px-4 py-4 mt-6 font-Dosis'>
+    How to deposit and withdraw fund with
+    BitMex wallet address.<br></br>
+    
+    Please make sure you deposit with a legit crypto wallet ID/address, because this wallet address will be used for crediting your deposits into your account after updating it as your sender wallet address <span className='text-blue-400 underline'>Continue...</span>
+
+  
    </p>
    </NavLink>
        </div>
@@ -80,15 +84,15 @@ const Main = () => {
     </section>
 
     <section className='w-full  overflow-auto mb-20'>
-      <div className='w-full bg-yellow-500'>
-        <img alt='aboutIMG' src={about} className='w-full object-cover' >
+      <div className='w-full bg-yellow-500 mb-6 pb-4 rounded-b-xl'>
+        <img alt='aboutIMG' src={about} className='w-full object-contain' >
         </img>
-        <p className='px-2 text-center text-sm mt-2 mb-3'> 
+        <p className='px-2 text-center text-sm mt-2 mb-3 font-Dosis'> 
        <span className='font-bold'>Constantine trading AI</span>  is a cloud trading platform empowering trader to
         automate their trading on major exchanges.
         </p>
 
-        <p className='px-2 text-center text-sm mt-2 mb-3'>
+        <p className='px-2 text-center text-sm mt-2 mb-3 font-Dosis'>
           <p className='text-center text-sm mt-2 mb-1 font-bold'> Constantine trading AI history</p>
           Constantine trading AI welcomed first customers in Fall 2018 and never has been breaking the barriers to automated trading ever since then. For the last few years, Constantine trading AI has introduced thousands of crypto owners to automated trading.
 
@@ -97,8 +101,8 @@ const Main = () => {
 
       </div>
 
-      <p className='px-2 text-center text-sm mt-2'> 
-      <p className='text-center  mt-2 mb-1 font-bold'>Constantine trading AI mission</p>
+      <p className='px-2 text-center text-sm mt-2 font-Dosis'> 
+      <p className='text-center  mt-2 mb-1 font-bold font-Dosis'>Constantine trading AI mission</p>
       We designed Constantine trading AI with the idea at heart to make automated crypto trading accessible to everyone and provide opportunities to traders of all experience levels to make a profit in the ever-growing crypto market.
 
       </p>

@@ -52,6 +52,7 @@ const Profile = () => {
      if(data !== 0){
        setbtc(`${data.btc}`)
        seteth(`${data.eth}`)
+       console.log(account)
        
      }else{
        setbtc(`failed reload`)
