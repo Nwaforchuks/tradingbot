@@ -2,8 +2,8 @@
 import { set } from "date-fns";
 import connect from "../api/connect";
 
-//const uri = 'https://tradebot-api-vj4f.onrender.com'
-const uri = 'http://localhost:3500'
+const uri = 'https://tradebot-api-vj4f.onrender.com'
+//const uri = 'http://localhost:3500'
 
 const changetrade = (trade)=>{
   if(trade === "start"){
