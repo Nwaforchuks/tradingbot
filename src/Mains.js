@@ -43,6 +43,17 @@ const Main = () => {
       <img alt='eth' src={eth} className='sm:w-20 sm:h-20 block m-auto animate-bounce w-10 h-10'>
       </img>
     </p>
+
+    <p className='text-center text-sm font-Dosis font-semibold'>*Please Note this app is not yet functional*</p>
+    <p className='text-center text-sm font-Dosis font-semibold mt-2'>Message us on our Facebook page @ 
+    <button className='ml-1 text-blue-500 underline' onClick={(e)=>{
+    
+    window.location.href ='https://www.facebook.com/profile.php?id=61560035648493';
+
+  }}>
+    Constantine App
+    </button> for your modernize and responsive website and android app
+  </p>
     </section>
 
     <section className='w-full  overflow-y-auto mt-1   mx-auto sm:grid sm:grid-flow-col bg-slate-200 py-2 px-2 pt-5'>
